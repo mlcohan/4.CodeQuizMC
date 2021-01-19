@@ -9,7 +9,10 @@ var quizComplete;
 
 var questions = ["What does DOM stand for?", "What does the i variable represent in a for loop", "What does addEventListener do?"]
 
+var answers
 
+// Attach event listener to start button to call startGame function on click
+startButton.addEventListener("click", startGame)
 
 function startGame() {
 
@@ -22,6 +25,14 @@ function startGame() {
 
 
 //do something with quizComplete
+
+function setNextQuestion (){
+
+}
+
+function selectAnswer() {
+
+}
 
 function winGame () {
     quizQuestion.textContent = "YOU MADE IT TO THE HALL OF FAME"
@@ -69,5 +80,3 @@ function renderQuestions() {
 }
 
 
-// Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", startGame)
