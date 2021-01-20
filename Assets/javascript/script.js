@@ -1,7 +1,8 @@
-// var timerElement = document.querySelector(".timer-count");
+var timerElement = document.querySelector(".timer-count");
 // var startButton = document.querySelector(".start-button");
 // var quizQuestion = document.querySelector(".question");
 
+//selecting =elements on html
 var questionContainer = document.getElementById('question-container')
 var startButton = document.getElementById('start-btn')
 var nextButton = document.getElementById('next-btn')
@@ -13,7 +14,7 @@ var answerButtonsElement = document.getElementById('answer-buttons')
 // var timerCount;
 // var quizComplete;
 
-
+//variable to shuffle questions
 var shuffledQuestions
 var currentQuestionIndex
 
@@ -65,7 +66,7 @@ function startGame() {
     // startTimer()
     renderQuestions()
     startButton.classList.add('hide')
-    shuffledQuestions = questions.sort(() => Math.random - .5)
+    shuffledQuestions = questions.sort(() => Math.random - .5) //shuffles questions
     currentQuestionIndex = 0
     questionContainer.classList.remove('hide')
     setNextQuestion()
@@ -94,7 +95,9 @@ function showQuestion(question) {
   })
 }
 
+//clears the page 
 function resetState() {
+  clearStatusClass(document.body)
   nextButton.classList.add("hide")
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild
@@ -106,7 +109,7 @@ function selectAnswer(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.chldren).forEach(button => {
+  Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -120,15 +123,15 @@ function selectAnswer(e) {
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
-    element.clasList.add('correct')
+    element.classList.add("correct")
   } else {
-    element.classList.add('wrong')
+    element.classList.add("wrong")
   }
 }
 
 function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classlist.remove('wrong')
+  element.classList.remove("correct")
+  element.classList.remove("wrong")
 }
 
 // function winGame () {

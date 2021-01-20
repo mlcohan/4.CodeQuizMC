@@ -51,7 +51,7 @@ body.wrong {
     --hue: var(--hue-neautral);
     border: 1px solid hsl(var(--hue), 100%, 30%);
     background-color: hsl(var(--hue), 100%, 50%);
-    border-radius: 5px;
+    border-radius: 5px;   /*rounded corner*/
     padding: 5px 10px;
     color: white;
     outline: none;
@@ -70,18 +70,21 @@ body.wrong {
     --hue: var(--hue-wrong);
 }
 
+/*style start and next botton*/
 .start-btn .next-btn {
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 10px, 20px;
+    padding: 10px 20px;
 }
 
+/*center buttons*/
 .controls{
     display: flex;
     justify-content: center;
     align-items:center;
 }
 
+/*hide the questions and answers to being*/
 .hide{
     display: none;
 }
