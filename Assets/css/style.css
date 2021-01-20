@@ -1,6 +1,6 @@
-*::before, *::after {
+*, *::before, *::after {
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 :root {
@@ -11,12 +11,12 @@
 }
 
 body {
-    --hue: var(--hue-neutral)
+    --hue: var(--hue-neutral);
     padding: 0;
-    margin:0;
+    margin: 0;
     display: flex;
-    width: 100 vs;
-    height: 100 vh;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     background-color: hsl(var(--hue), 100%, 20%);
