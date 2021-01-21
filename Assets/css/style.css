@@ -1,8 +1,9 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* defining the background colors */
 :root {
     --hue-neutral: 200;
     --hue-wrong:0;
@@ -40,6 +41,7 @@ body.wrong {
     box-shadow: 0 0 10px 2px;
 }
 
+/* puts buttons in a grid */
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -57,6 +59,7 @@ body.wrong {
     outline: none;
 }
 
+/* hover effect */
 .btn:hover {
     border-color: black;
 }
