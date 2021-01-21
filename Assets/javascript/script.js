@@ -32,41 +32,38 @@ var highScores = []
    {
      question: "What does DOM stand for?", 
      answers: [
-       { text: "idk", correct: true },
-       { text: "idk", correct: false },
-       { text: "idk", correct: false },
-       { text: "idk", correct: false },
-       { text: "ugh", correct: false }
+       { text: "Document Object Model", correct: true },
+       { text: "Donuts On Me", correct: false },
+       { text: "Desktop Object Method", correct: false },
+       { text: "Document Object Moment", correct: false },
      ]
     },
     {
-      question: "What does Any of this mean?", 
+      question: "How do you make a function repeat itself without using a ton of code?", 
       answers: [
-        { text: "idk", correct: true },
-        { text: "idk", correct: false },
-        { text: "idk", correct: false },
-        { text: "idk", correct: false },
-        { text: "ugh", correct: false }
+        { text: "use an if statement", correct: false },
+        { text: "use a for loop", correct: true },
+        { text: "use your brain", correct: false },
+        { text: "use a boolean", correct: false }
       ]
      },
      {
-      question: "What YA THNINK?", 
+      question: "Which type of variable is used for text?", 
       answers: [
-        { text: "idk", correct: true },
-        { text: "idk", correct: false },
-        { text: "idk", correct: false },
-        { text: "idk", correct: false },
-        { text: "ugh", correct: false }
+        { text: "numbers", correct: false },
+        { text: "words", correct: false },
+        { text: "booleans", correct: false },
+        { text: "strings", correct: true },
       ]
      },
 
      {
-      question: "Whats really good?", 
+      question: "The first index of an array is...", 
       answers: [
-        { text: "idk", correct: true },
-        { text: "idk", correct: false },
-        { text: "idk", correct: false },
-        { text: "ugh", correct: false }
+        { text: "-1", correct: false },
+        { text: "0", correct: true },
+        { text: "1", correct: false },
+        { text: "null", correct: false }
       ]
      },
   ]
@@ -192,6 +189,7 @@ function addHighScore() {
 
   highScoreInput.textContent = userInput;
   
+  highScoreElement.textContent = (userInput + " finished with " + timerCont + " seconds left.")
   
 
   }
