@@ -10,6 +10,8 @@ var nextButton = document.getElementById('next-btn')
 var storeScoreButton = document.getElementById('score-btn')
 var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
+var highScoreElement = document.getElementById("high-score-form")
+var highScoreInput = document.getElementById("exampleName")
 
 
 //defining timer variables 
@@ -20,6 +22,9 @@ var quizComplete;
 //variable to shuffle questions
 var shuffledQuestions 
 var currentQuestionIndex
+
+
+var highScore = []
 
 //question bank
  var questions = [
@@ -161,18 +166,19 @@ function clearStatusClass(element) {
 
 function winGame () {
   questionContainer.textContent = "YOU WIN!! YOU FINISHED WITH " + timerCount + " seconds left!"
-  storeScoreButton.classList.remove('hide')
+  storeScoreButton.classList.remove("hide")
   timeWithText.classList.add('hide');
-  storeScore()
 }
 
 function storeScore(){
   storeScoreButton.classList.add("hide")
+  highScoreElement.classList.remove("hide")
+  highScoreElement.addEventListener("click", function(element) {
+    var element = element.target;
+  })
 }
-// function outtaTime () {
-
-// }
-
+    
+  
 
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -185,14 +191,14 @@ function startTimer() {
         // Tests if win condition is met
         if (quizComplete && timerCount > 0) {
           // Clears interval and stops timer
-          clearInterval(timer);
+          clearInterval(timerCount);
           winGame();
         }
       }
       // Tests if time has run out
-      if (timerCount <= 0) {
+      if (timerCount <= 0 ){
         // Clears interval
-        clearInterval(timer);
+        clearInterval(timerCount);
         outtaTime();
       }
   
