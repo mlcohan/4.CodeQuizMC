@@ -12,6 +12,7 @@ var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
 var highScoreElement = document.getElementById("high-score-form")
 var highScoreInput = document.getElementById("exampleName")
+var sumbitButton = document.getElementById("enter")
 
 
 //defining timer variables 
@@ -24,7 +25,7 @@ var shuffledQuestions
 var currentQuestionIndex
 
 
-var highScore = []
+var highScores = []
 
 //question bank
  var questions = [
@@ -73,7 +74,7 @@ var highScore = []
 
 
 // Attach event listener to start button to call startGame function on click
-storeScoreButton.addEventListener("click", storeScore)
+
 startButton.addEventListener("click", startGame)
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++
@@ -95,6 +96,11 @@ function startGame() {
     timeWithText.classList.remove('hide')
     setNextQuestion()
   }
+
+  function renderQuestions() {
+    chosenQuestion = questions[Math.floor(Math.random()*questions.length)];
+  }
+    // quizQuestion.textContent = chosenQuestion
 
 
 //do something with quizComplete
@@ -155,8 +161,9 @@ function setStatusClass(element, correct) {
     element.classList.add("correct")
   } else {
     element.classList.add("wrong")
-    timerCount --
+    timerCount--
   }
+
 }
 
 function clearStatusClass(element) {
@@ -170,15 +177,25 @@ function winGame () {
   timeWithText.classList.add('hide');
 }
 
+storeScoreButton.addEventListener("click", storeScore)
+
 function storeScore(){
   storeScoreButton.classList.add("hide")
   highScoreElement.classList.remove("hide")
-  highScoreElement.addEventListener("click", function(element) {
-    var element = element.target;
-  })
-}
-    
+  sumbitButton.addEventListener("click", addHighScore)
+  }
+
+// The following function renders items in a todo list as <li> elements
+function addHighScore() {
   
+  var userInput =localStorage.getItem("exampleName")
+
+  highScoreInput.textContent = userInput;
+  
+  
+
+  }
+
 
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -187,16 +204,16 @@ function startTimer() {
   timer = setInterval(function() {
     timerCount--;
     timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
-        // Tests if win condition is met
-        if (quizComplete && timerCount > 0) {
+    
+    if (timercount>=0){
+    if (quizComplete && timerCount > 0) {
           // Clears interval and stops timer
-          clearInterval(timerCount);
           winGame();
+          return;
         }
-      }
+    }
       // Tests if time has run out
-      if (timerCount <= 0 ){
+      if (timerCount > 0){
         // Clears interval
         clearInterval(timerCount);
         outtaTime();
@@ -204,6 +221,7 @@ function startTimer() {
   
   }, 1000);
 }
+
 
 function outtaTime() {
   questionContainer.textContent = "YOU LOSE! TRY AGAIN!"
@@ -213,11 +231,5 @@ function outtaTime() {
 }
 
 
-function renderQuestions() {
-    chosenQuestion = questions[Math.floor(Math.random()*questions.length)];
-
-    // quizQuestion.textContent = chosenQuestion
-
-}
 
 
