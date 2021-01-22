@@ -81,8 +81,8 @@ Screenshot 11:
 
 ## Links to Deployed App
 
-https://mlcohan.github.io/3.passwordGeneratorMC/
+https://github.com/mlcohan/4.CodeQuizMC
 
-https://github.com/mlcohan/3.passwordGeneratorMC
+https://mlcohan.github.io/4.CodeQuizMC/
 
 
