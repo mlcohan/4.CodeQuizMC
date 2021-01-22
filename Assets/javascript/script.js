@@ -1,9 +1,7 @@
+//selecting elements on html
+
 var timerElement = document.querySelector(".timer-count");
 var timeWithText = document.getElementById("timer-text")
-// var startButton = document.querySelector(".start-button");
-// var quizQuestion = document.querySelector(".question");
-
-//selecting elements on html
 var questionFeedback = document.getElementById('question-feedback')
 var questionContainer = document.getElementById('question-container')
 var startButton = document.getElementById('start-btn')
@@ -16,14 +14,11 @@ var highScoreInput = document.getElementById("exampleName")
 var sumbitButton = document.getElementById("enter")
 
 
-//defining timer variables 
+//defining variables 
 var timer;
 var timerCount;
 var quizComplete;
-
 var currentQuestionIndex;
-
-
 var highScores = []
 
 //question bank
@@ -102,10 +97,10 @@ function setNextQuestion (){
     
     resetState()
     winGame()
-  }
+  } else{
   questionFeedback.classList.add('hide')
   showQuestion(questions[currentQuestionIndex])
-  
+  }
   
 }
 
@@ -142,17 +137,10 @@ function selectAnswer(e) {
   var selectedButton = e.target
   var correct = selectedButton.textContent === questions[currentQuestionIndex].answer
   answerResponse(correct)
-  // Array.from(answerButtonsElement.children).forEach(button => {
-  //   setStatusClass(button, button.dataset.correct)
-  // })
-//   if (questions.length === currentQuestionIndex) {
-    
-//   resetState()
-//   winGame()
-// }
 }
 
 
+//Repsonses to right/wrong answers
 function answerResponse(correct) {
   if (correct){
     questionFeedback.classList.remove('hide')
@@ -185,27 +173,24 @@ function storeScore(){
   sumbitButton.addEventListener("click", addHighScore)
   }
 
-// The following function renders items in a todo list as <li> elements
+// Add HighScore Funtion
 function addHighScore() {
   
    var userInput = highScoreInput.value 
 
-  
   highScoreElement.textContent = (userInput + " finished with " + timerCount + " seconds left.")
   
-  // highScoreElement.appendChild(userInput)
   }
 
 
 // The setTimer function starts and stops at 0
 function startTimer() {
-  // Sets timer
   timer = setInterval(function() {
     timerCount--;
     timerElement.textContent = timerCount;
       console.log(timerCount)
     
-      // Tests if time has run out
+      // lose if times out
       if (timerCount < 0){
         // Clears interval
         clearInterval(timer);
@@ -215,7 +200,7 @@ function startTimer() {
   }, 1000);
 }
 
-
+//Lose (out of time) function
 function outtaTime() {
   questionContainer.textContent = "YOU LOSE! TRY AGAIN!"
   timeWithText.classList.add("hide");
