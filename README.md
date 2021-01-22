@@ -2,7 +2,7 @@
 
 ## About
 
--This application is a cod Quiz.  When a user accesses this page there is a START  button for them to press to start the quiz (Screenshot 1)
+-This application is a code Quiz.  When a user accesses this page there is a START  button for them to press to start the quiz (Screenshot 1)
 
 -Once the button is pressed, a timer is started and user if prompted with a coding question  (Screenshot 2)
 
